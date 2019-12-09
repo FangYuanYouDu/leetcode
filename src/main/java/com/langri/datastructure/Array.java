@@ -5,15 +5,15 @@ package com.langri.datastructure;
  * @version 1.0.0
  * @date 2019/12/7 3:45
  */
-public class Array {
-    private int[] data; //数组
+public class Array<E> {
+    private E[] data; //数组
     private int size; //元素中的个数
 
     //==== capacity 容量 ====//
 
     //传入数组长度，构建数组
     public Array(int capacity) {
-        data = new int[capacity];
+        data = (E[]) new Object[capacity];
         size = 0;
     }
 
@@ -38,7 +38,7 @@ public class Array {
     }
 
     //添加元素
-    public void addLast(int e) {
+    public void addLast(E e) {
         /*if(size == data.length) {
             throw new IllegalArgumentException("addLast failed. the size is already full ");
         }
@@ -49,7 +49,7 @@ public class Array {
         add(size, e);
     }
 
-    public void addFirst(int e) {
+    public void addFirst(E e) {
         add(0, e);
     }
 
@@ -58,32 +58,20 @@ public class Array {
      * @param index 要插入数据的位置
      * @param insertValue 要插入的数据
      */
-     public void add(int index, int insertValue) {
-         if(size == data.length) {
-             throw new IllegalArgumentException("add failed. the size is already full");
-         }
+     public void add(int index, E insertValue) {
 
          if(index < 0 || index > size) {
              throw new IllegalArgumentException("add failed. require index < 0 || index > size");
          }
 
-         /*
-          * @param      data     the source array.源数组
-          * @param      index    starting position in the source array.源数组中的起始位置
-          * @param      data     the destination array.目标数组
-          * @param      destPos  starting position in the destination data.目标数据中的起始位置
-          * @param      length   the number of array elements to be copied.要复制的数组元素数量
-                            //1                   //2       //10-1=9
-         System.arraycopy(data, index, data, index + 1, size - index);
-          */
+         if(size == data.length) {
+             resize(2*data.length);
+         }
 
          for (int i = size-1; i >= index; i--) {
              data[i+1] = data[i];
          }
-        //66 88 99 100  77插入第二个位置
-         //66 88 88 99 100 capacity到index位置的数据 向后移1位
-         // capacity == size-1
-         //66 77 88 99 100 77将原本在第二位置的88覆盖
+
         data[index] = insertValue;
         size++;
      }
@@ -106,7 +94,7 @@ public class Array {
     }
 
     //获取某个位置的元素
-    public int get(int index){
+    public E get(int index){
          //还要判断传入索引的合法性
         if(index < 0 || index >= size){
             throw new IllegalArgumentException("get failed. the index is Illegal");
@@ -116,7 +104,7 @@ public class Array {
     }
 
     //修改某个位置的元素
-    public void set(int index,int e){
+    public void set(int index,E e){
         //还要判断传入索引的合法性
         if(index < 0 || index >= size){
             throw new IllegalArgumentException("set failed. the index is Illegal");
@@ -130,9 +118,11 @@ public class Array {
      * @param e 要查找的元素
      * @return 是否存在
      */
-    public boolean existElement(int e){
+    public boolean existElement(E e){
         for (int i = 0; i < size; i++) {
-            if(data[i] == e){
+            //==是地址引用比较
+            //.equals()是值比较
+            if(data[i].equals(e)){
                 return true;
             }
         }
@@ -144,9 +134,9 @@ public class Array {
      * @param e 要查找的元素
      * @return 返回该元素的索引，如果没有则返回约定未找到代码"-1"
      */
-    public int indexOfElement(int e){
+    public int indexOfElement(E e){
         for (int i = 0; i < size; i++) {
-            if(data[i] == e){
+            if(data[i].equals(e)){
                 return i;
             }
         }
@@ -156,34 +146,39 @@ public class Array {
     //从数组中删除某个元素
     //1 2 3 4 5 6
     //1 3 4 5 6
-    public int remove(int index){
+    public E remove(int index){
         //还要判断传入索引的合法性
         if(index < 0 || index >= size){
             throw new IllegalArgumentException("delete failed. the index is Illegal");
         }
 
-        int delValue = data[index];
+        E delValue = data[index];
 
-        for (int i = index; i < size; i++) {
-            data[i] = data[i+1];
+        for (int i = index+1; i < size; i++) {
+            data[i-1] = data[i];
         }
         size--;
+        data[size] = null; //loitering object 闲散对象
 
+        //如果元素个数等于容量的一半，开始进行缩容
+        if(size == data.length / 2){
+            resize(data.length / 2);
+        }
         return delValue;
     }
 
     //删除第一个元素
-    public int removeFist(){
+    public E removeFist(){
         return remove(0);
     }
 
     //删除最后一个元素
-    public int removeLast(){
+    public E removeLast(){
         return remove(size-1);
     }
 
     //删除元素
-    public boolean removeElement(int e){
+    public boolean removeElement(E e){
         int index = indexOfElement(e);
         if(index != -1){
             remove(index);
@@ -193,4 +188,11 @@ public class Array {
     }
     //删除所有符合的元素
 
+    private void resize(int capacity){
+        E[] newData = (E[])new Object[capacity];
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
+    }
 }

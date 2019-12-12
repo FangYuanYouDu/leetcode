@@ -1,7 +1,7 @@
 package com.langri.datastructure;
 
 /**
- * @author fy
+ * @author LR
  * @version 1.0.0
  * @date 2019/12/7 3:45
  */
@@ -161,9 +161,16 @@ public class Array<E> {
         data[size] = null; //loitering object 闲散对象
 
         //如果元素个数等于容量的一半，开始进行缩容
-        if(size == data.length / 2){
-            resize(data.length / 2);
+        if(size == data.length/2 && data.length/2 != 0){
+            resize(data.length/2);
         }
+
+        // Lazy模式：当数组n容量满时，扩容一倍2n；当数组2n容量删除元素到1/4(也就是到n/2)时，缩容到n即可
+        // 防止震荡复杂度（防止有时刚添加一个元素扩容一倍，就又删除一个元素缩容到原来容量，如此循环往复，复杂度一直是O(n)）
+        //本来remove()的复杂度可以看作是O(1) 均摊复杂度也是O(1) 只有扩容/缩容的时候才是O(n) 震荡的时候就完全变成O(n)了
+        /*if(size == data.length / 4){
+            resize(data.length / 2);
+        }*/
         return delValue;
     }
 

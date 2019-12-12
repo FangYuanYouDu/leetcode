@@ -3,7 +3,7 @@ package com.langri.datastructure;
 import java.util.ArrayList;
 
 /**
- * @author fy
+ * @author LR
  * @version 1.0.0
  * @date 2019/12/8 18:35
  */

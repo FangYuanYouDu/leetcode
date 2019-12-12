@@ -1,7 +1,7 @@
 package com.langri.datastructure;
 
 /**
- * @author fy
+ * @author LR
  * @version 1.0.0
  * @date 2019/12/10 3:31
  */

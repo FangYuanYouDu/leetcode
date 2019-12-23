@@ -1,4 +1,4 @@
-package com.langri.datastructure;
+package com.langri.datastructure.array;
 
 /**
  * @author LR

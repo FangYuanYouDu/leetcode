@@ -1,6 +1,4 @@
-package com.langri.datastructure;
-
-import java.util.ArrayList;
+package com.langri.datastructure.array;
 
 /**
  * @author LR

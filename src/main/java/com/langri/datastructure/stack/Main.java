@@ -7,12 +7,16 @@ package com.langri.datastructure.stack;
  */
 public class Main {
     public static void main(String[] args) {
-        ArrayStack<Integer> stack = new ArrayStack<Integer>();
-        for (int i = 0; i < 5; i++) {
-            stack.push(i);
-            System.out.println(stack.toString());
-        }
-        stack.poop();
-        System.out.println(stack.toString());
+//        ArrayStack<Integer> stack = new ArrayStack<Integer>();
+//        for (int i = 0; i < 5; i++) {
+//            stack.push(i);
+//            System.out.println(stack.toString());
+//        }
+//        stack.poop();
+//        System.out.println(stack.toString());
+        String s="{[(]}";
+        ValidParentheses validParentheses = new ValidParentheses();
+        boolean valid = validParentheses.isValid(s);
+        System.out.println(valid);
     }
 }

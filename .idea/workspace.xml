@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa753e12-6c95-491d-8fd1-e6b5a5f7e41b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/langri/datastructure/stack/ValidParentheses.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/langri/datastructure/queue/Array.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/langri/datastructure/queue/ArrayQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/langri/datastructure/queue/LoopQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/langri/datastructure/queue/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/langri/datastructure/queue/Queue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/langri/datastructure/stack/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/langri/datastructure/stack/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/langri/datastructure/stack/ValidParentheses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/langri/datastructure/stack/ValidParentheses.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testreadme.md" beforeDir="false" afterPath="$PROJECT_DIR$/testreadme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,13 +77,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.langri.datastructure.queue" />
       <recent name="com.langri.datastructure.stack" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\springDemo\leetcode" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Application.Main (2)">
     <configuration name="Array" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.langri.datastructure.array.Array" />
       <module name="leetcode" />
@@ -98,6 +104,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.langri.datastructure.stack.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.langri.datastructure.queue.Main" />
+      <module name="leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.langri.datastructure.queue.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -133,6 +152,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Student" />
@@ -177,6 +197,11 @@
       <workItem from="1577075355695" duration="1860000" />
       <workItem from="1577078109067" duration="5897000" />
       <workItem from="1577171541617" duration="3735000" />
+      <workItem from="1577514172680" duration="6117000" />
+      <workItem from="1577601363001" duration="5178000" />
+      <workItem from="1577784469679" duration="105000" />
+      <workItem from="1577864734016" duration="599000" />
+      <workItem from="1577952508084" duration="816000" />
     </task>
     <task id="LOCAL-00001" summary="一晚上的工作量">
       <created>1575927440660</created>
@@ -199,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577094640459</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="新增栈的括号匹配">
+      <created>1577514248888</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1577514248888</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,49 +254,54 @@
     <MESSAGE value="一晚上的工作量" />
     <MESSAGE value="新增简单复杂度分析" />
     <MESSAGE value="新增栈的类和测试方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增栈的类和测试方法" />
+    <MESSAGE value="新增栈的括号匹配" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增栈的括号匹配" />
   </component>
   <component name="WindowStateProjectService">
     <state x="399" y="132" key="#com.intellij.ide.util.ExportDialog" timestamp="1575807717908">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="399" y="132" key="#com.intellij.ide.util.ExportDialog/0.0.1536.824@0.0.1536.824" timestamp="1575807717908" />
-    <state x="857" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1577075511642">
+    <state x="857" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1577607307542">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="857" y="68" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1577075511642" />
+    <state x="857" y="68" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1577607307542" />
     <state x="449" y="129" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1577077981615">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="129" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1577077981615" />
-    <state x="319" y="0" width="1123" height="824" key="CommitChangelistDialog2" timestamp="1577094639748">
+    <state x="436" y="105" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577524061814">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="319" y="0" width="1123" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1577094639748" />
-    <state width="1483" height="328" key="GridCell.Tab.0.bottom" timestamp="1577514207130">
+    <state x="436" y="105" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1577524061814" />
+    <state x="319" y="0" width="1123" height="824" key="CommitChangelistDialog2" timestamp="1577514248258">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="328" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577514207130" />
-    <state width="1483" height="328" key="GridCell.Tab.0.center" timestamp="1577514207129">
+    <state x="319" y="0" width="1123" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1577514248258" />
+    <state width="1483" height="328" key="GridCell.Tab.0.bottom" timestamp="1577533924794">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="328" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577514207129" />
-    <state width="1483" height="328" key="GridCell.Tab.0.left" timestamp="1577514207129">
+    <state width="1483" height="328" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577533924794" />
+    <state width="1483" height="328" key="GridCell.Tab.0.center" timestamp="1577533924794">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="328" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577514207129" />
-    <state width="1483" height="328" key="GridCell.Tab.0.right" timestamp="1577514207130">
+    <state width="1483" height="328" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577533924794" />
+    <state width="1483" height="328" key="GridCell.Tab.0.left" timestamp="1577533924794">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="328" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577514207130" />
+    <state width="1483" height="328" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577533924794" />
+    <state width="1483" height="328" key="GridCell.Tab.0.right" timestamp="1577533924794">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1483" height="328" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577533924794" />
     <state x="157" y="0" key="SettingsEditor" timestamp="1577077205836">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="157" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1577077205836" />
-    <state x="539" y="315" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577173785646">
+    <state x="539" y="315" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577955577828">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="539" y="315" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1577173785646" />
+    <state x="539" y="315" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1577955577828" />
     <state x="341" y="185" key="run.anything.popup" timestamp="1575806972777">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

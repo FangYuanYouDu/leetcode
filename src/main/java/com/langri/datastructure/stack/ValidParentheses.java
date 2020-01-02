@@ -1,5 +1,7 @@
 package com.langri.datastructure.stack;
 
+import java.util.Stack;
+
 /**
  * @author LR
  * @version 1.0.0
@@ -8,7 +10,7 @@ package com.langri.datastructure.stack;
 public class ValidParentheses {
     //s "{[(}])"
     public boolean isValid(String s){
-        ArrayStack<Character> stack = new ArrayStack<Character>();
+        Stack<Character> stack = new Stack<Character>();
         for (int i = 0; i <s.length(); i++) {
             char c = s.charAt(i);
             if(c == '{' || c == '[' || c == '('){
@@ -17,7 +19,7 @@ public class ValidParentheses {
                 if(stack.isEmpty()){
                     return false;
                 }
-                char poop = stack.poop();
+                char poop = stack.pop();
                 if(poop == '(' && c != ')'){
                     return false;
                 }
@@ -29,6 +31,6 @@ public class ValidParentheses {
                 }
             }
         }
-        return true;
+        return stack.isEmpty();
     }
 }

@@ -14,7 +14,7 @@ public class Main {
 //        }
 //        stack.poop();
 //        System.out.println(stack.toString());
-        String s="{[(]}";
+        String s="{[()]}{}";
         ValidParentheses validParentheses = new ValidParentheses();
         boolean valid = validParentheses.isValid(s);
         System.out.println(valid);

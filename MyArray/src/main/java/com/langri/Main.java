@@ -7,13 +7,14 @@ package com.langri;
  */
 public class Main {
     public static void main(String[] args) {
-        Array array = new Array(10);
+        Array<String> array = new Array<String>(10);
         for (int i=1; i<10; i++){
-            array.addLast(i);
+            array.addLast(i+".");
         }
         System.out.println(array.toString());
 
-        array.remove(1);
+        array.addFirst("zzz");
+        array.addLast("aaa");
         System.out.println(array);
     }
 }

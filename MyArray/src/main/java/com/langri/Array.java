@@ -6,8 +6,8 @@ package com.langri;
  * @version 1.0.0
  * 创造一个数组
  */
-public class Array {
-    private int[] data;
+public class Array<E> {
+    private E[] data;
     private int size;
 
     /**
@@ -15,7 +15,7 @@ public class Array {
      * @param capacity 用户传入要用多大容量的数组
      */
     public Array(int capacity){
-        data = new int[capacity];
+        data = (E[]) new Object[capacity];
         size = 0;
     }
 
@@ -54,7 +54,7 @@ public class Array {
      * 向第一个位置添加元素
      * @param e 要添加的元素
      */
-    public void addFirst(int e){
+    public void addFirst(E e){
         add(0, e);
     }
 
@@ -62,7 +62,7 @@ public class Array {
      * 向最后的位置添加元素
      * @param e 要添加的元素
      */
-    public void addLast(int e){
+    public void addLast(E e){
         /*if(size == data.length){
             throw new IllegalArgumentException("addLast fail. array is full");
         }
@@ -76,13 +76,14 @@ public class Array {
      * @param index 指定位置
      * @param e 要添加的元素
      */
-    public void add(int index,int e){
-        if(size == data.length){
-            throw new IllegalArgumentException("add fail. array is full");
-        }
+    public void add(int index,E e){
 
         if(index < 0 || index > size){
             throw new IllegalArgumentException("add fail. index is illegal with index > 0 || index > size");
+        }
+
+        if(size == data.length){
+            resize(2 * data.length);
         }
 
         /*for (int i = size; i > index; i--){
@@ -119,7 +120,7 @@ public class Array {
      * @param index 指定位置
      * @return 返回元素
      */
-    public int get(int index){
+    public E get(int index){
         if(index <0 || index >=size){
             throw new IllegalArgumentException("get fail. index is illegal");
         }
@@ -132,7 +133,7 @@ public class Array {
      * @param index 指定位置
      * @param e 新的值
      */
-    public void set(int index, int e){
+    public void set(int index, E e){
         if(index <0 || index >=size){
             throw new IllegalArgumentException("get fail. index is illegal");
         }
@@ -145,9 +146,9 @@ public class Array {
      * @param e 参数元素
      * @return 返回是/否
      */
-    public boolean contains(int e){
+    public boolean contains(E e){
         for(int i=0; i<size; i++){
-            if(data[i] == e){
+            if(data[i].equals(e)){
                 return true;
             }
         }
@@ -159,9 +160,9 @@ public class Array {
      * @param e 指定元素
      * @return 如果存在该元素，返回该元素的索引值；否则，返回无效索引值-1
      */
-    public int findIndex(int e){
+    public int findIndex(E e){
         for(int i=0; i<size; i++){
-            if(data[i] == e){
+            if(data[i].equals(e)){
                 return i;
             }
         }
@@ -173,16 +174,21 @@ public class Array {
      * @param index 索引值
      * @return 返回被删除元素的值
      */
-    public int remove(int index){
+    public E remove(int index){
         if(index <0 || index >=size){
             throw new IllegalArgumentException("remove fail. index is illegal");
         }
 
-        int ret = data[index];
+        E ret = data[index];
         for(int i=index; i<size-1; i++){
             data[i] = data[i+1];
         }
         size--;
+        data[size] = null; //将游离态的 原来有键值的键指向的 对象置null 避免GC回收不到
+
+        if(size == data.length/4 && data.length/2 != 0){
+            resize(data.length / 2);
+        }
 
         return ret;
     }
@@ -191,7 +197,7 @@ public class Array {
      * 删除第一个索引位置的元素
      * @return 返回被删除元素的值
      */
-    public int removeFirst(){
+    public E removeFirst(){
         return remove(0);
     }
 
@@ -199,7 +205,7 @@ public class Array {
      * 删除最后一个索引位置的元素
      * @return 返回被删除元素的值
      */
-    public int removeLast(){
+    public E removeLast(){
         return remove(size-1);
     }
 
@@ -208,7 +214,7 @@ public class Array {
      * @param e 指定元素e
      * @return 返回是否删除成功
      */
-    public boolean removeElement(int e){
+    public boolean removeElement(E e){
         int index = findIndex(e);
         if(index != -1){
             remove(index);
@@ -219,4 +225,12 @@ public class Array {
 
     //TODO 删除多个指定元素e
 
+
+    public void resize(int capacity){
+        E[] newData = (E[])new Object[capacity];
+        for(int i=0; i<size; i++){
+            newData[i] = data[i];
+        }
+        data = newData;
+    }
 }

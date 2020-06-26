@@ -161,7 +161,7 @@ public class Array<E> {
         data[size] = null; //loitering object 闲散对象
 
         //如果元素个数等于容量的一半，开始进行缩容
-        if(size == data.length/2 && data.length/2 != 0){
+        if(size == data.length/4 && data.length/2 != 0){
             resize(data.length/2);
         }
 
